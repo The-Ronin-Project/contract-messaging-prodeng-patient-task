@@ -1,0 +1,21 @@
+{
+  "$id": "https://github.com/projectronin/contract-messaging-prodeng-patient-task/blob/main/v1/complete-task-v1.schema.json",
+  "title": "Complete Task Schema",
+  "description": "This is an schema for completing tasks in patient task service.",
+  "type": "object",
+  "properties": {
+    "patientId": {
+      "type": "string",
+      "description": "Patient ID"
+    },
+    "tenantId": {
+      "type": "string",
+      "description": "The tenant ID"
+    },
+    "questionnaireId": {
+      "type": "string",
+      "description": "The questionnaire ID"
+    }
+  },
+  "required": ["patientId", "tenantId", "questionnaireId"]
+}

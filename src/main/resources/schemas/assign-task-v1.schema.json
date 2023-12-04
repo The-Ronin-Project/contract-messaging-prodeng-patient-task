@@ -1,0 +1,67 @@
+{
+  "$id": "https://github.com/projectronin/contract-messaging-prodeng-patient-task/blob/main/v1/assign-task-v1.schema.json",
+  "title": "Assign Task Schema",
+  "description": "This is a schema for assigning a task in patient task service.",
+  "type": "object",
+  "properties": {
+    "patientId": {
+      "type": "string",
+      "description": "Patient ID"
+    },
+    "tenantId": {
+      "type": "string",
+      "description": "The tenant ID"
+    },
+    "questionnaireId": {
+      "type": "string",
+      "description": "The questionnaire ID"
+    },
+    "action": {
+      "type": "string",
+      "description": "The action to perform",
+      "enum": ["START", "STOP"]
+    },
+    "timing": {
+      "description": "This represents the timing of the task.",
+      "$ref": "#/$defs/timing"
+    }
+  },
+  "required": ["patientId", "tenantId", "questionnaireId", "action"],
+  "$defs":  {
+    "timing": {
+      "type": "object",
+      "description": "The resource representation",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Resource ID"
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The tenant ID"
+        },
+        "resourceVersion": {
+          "type": "string",
+          "description": "An monotonically incrementing version used for ordering representations"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When was the resource created"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When want the resource last updated"
+        }
+      },
+      "required": [
+        "id",
+        "tenantId",
+        "resourceVersion",
+        "subObject",
+        "createdAt"
+      ]
+    }
+  }
+}
