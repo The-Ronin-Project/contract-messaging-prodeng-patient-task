@@ -1,0 +1,102 @@
+{
+  "$id": "https://github.com/projectronin/contract-messaging-prodeng-patient-task/blob/main/v1/assign-task-v1.schema.json",
+  "title": "Assign Task Schema",
+  "description": "This is a schema for assigning a task in patient task service.",
+  "type": "object",
+  "properties": {
+    "patientId": {
+      "type": "string",
+      "description": "Patient ID"
+    },
+    "tenantId": {
+      "type": "string",
+      "description": "The tenant ID"
+    },
+    "questionnaireId": {
+      "type": "string",
+      "description": "The questionnaire ID"
+    },
+    "action": {
+      "type": "string",
+      "description": "The action to perform",
+      "enum": ["START", "STOP"]
+    },
+    "repeatable": {
+      "type": "boolean",
+      "description": "Whether the questionnaire can be immediately retaken once completed"
+    },
+    "timing": {
+      "description": "This represents the timing of the task.",
+      "$ref": "#/$defs/timing"
+    }
+  },
+  "required": ["patientId", "tenantId", "questionnaireId", "action"],
+  "$defs":  {
+    "timing": {
+      "type": "object",
+      "description": "The timing of the task for the given patient.",
+      "properties": {
+        "startDelay": {
+          "type": "object",
+          "description": "The start delay of the task",
+          "$ref": "#/$defs/duration"
+        },
+        "endDelay": {
+          "type": "object",
+          "description": "The start delay of the task",
+          "$ref": "#/$defs/duration"
+        },
+        "repeat": {
+          "type": "object",
+          "description": "The repeat details of the task",
+          "properties": {
+            "frequency": {
+              "type": "integer",
+              "description": "The number of times that the task may be completed per period"
+            },
+            "period": {
+              "type": "integer",
+              "description": "The period of the task in period units"
+            },
+            "periodUnit": {
+              "type": "string",
+              "enum": ["s","min","h", "d", "wk", "mo", "a"],
+              "description": "The time unit of the period"
+            },
+            "dayOfWeek": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+              },
+              "description": "The days of the week that the task may be completed"
+            },
+            "count": {
+              "type": "integer",
+              "description": "The total number of times the task may be completed"
+            }
+          }
+        }
+      },
+      "required": [
+        "repeat"
+      ]
+    },
+    "duration": {
+      "type": "object",
+      "description": "A given duration",
+      "properties": {
+        "duration" : {
+          "type": "integer",
+          "description": "The duration given in duration units"
+        },
+        "durationUnit" : {
+          "type": "string",
+          "enum": ["s","min","h", "d", "wk", "mo", "a"],
+          "description": "The unit of the duration"
+        }
+      },
+      "required": ["duration","durationUnit"]
+    }
+  }
+}
