@@ -21,6 +21,10 @@
       "description": "The action to perform",
       "enum": ["START", "STOP"]
     },
+    "repeatable": {
+      "type": "boolean",
+      "description": "Whether the questionnaire can be immediately retaken once completed"
+    },
     "timing": {
       "description": "This represents the timing of the task.",
       "$ref": "#/$defs/timing"
@@ -30,38 +34,69 @@
   "$defs":  {
     "timing": {
       "type": "object",
-      "description": "The resource representation",
+      "description": "The timing of the task for the given patient.",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID"
+        "startDelay": {
+          "type": "object",
+          "description": "The start delay of the task",
+          "$ref": "#/$defs/duration"
         },
-        "tenantId": {
-          "type": "string",
-          "description": "The tenant ID"
+        "endDelay": {
+          "type": "object",
+          "description": "The start delay of the task",
+          "$ref": "#/$defs/duration"
         },
-        "resourceVersion": {
-          "type": "string",
-          "description": "An monotonically incrementing version used for ordering representations"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "When was the resource created"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "When want the resource last updated"
+        "repeat": {
+          "type": "object",
+          "description": "The repeat details of the task",
+          "properties": {
+            "frequency": {
+              "type": "integer",
+              "description": "The number of times that the task may be completed per period"
+            },
+            "period": {
+              "type": "integer",
+              "description": "The period of the task in period units"
+            },
+            "periodUnit": {
+              "type": "string",
+              "enum": ["s","min","h", "d", "wk", "mo", "a"],
+              "description": "The time unit of the period"
+            },
+            "dayOfWeek": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+              },
+              "description": "The days of the week that the task may be completed"
+            },
+            "count": {
+              "type": "integer",
+              "description": "The total number of times the task may be completed"
+            }
+          }
         }
       },
       "required": [
-        "id",
-        "tenantId",
-        "resourceVersion",
-        "subObject",
-        "createdAt"
+        "repeat"
       ]
+    },
+    "duration": {
+      "type": "object",
+      "description": "A given duration",
+      "properties": {
+        "duration" : {
+          "type": "integer",
+          "description": "The duration given in duration units"
+        },
+        "durationUnit" : {
+          "type": "string",
+          "enum": ["s","min","h", "d", "wk", "mo", "a"],
+          "description": "The unit of the duration"
+        }
+      },
+      "required": ["duration","durationUnit"]
     }
   }
 }
