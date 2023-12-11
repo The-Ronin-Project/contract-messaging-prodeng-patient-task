@@ -15,7 +15,11 @@
     "questionnaireId": {
       "type": "string",
       "description": "The questionnaire ID"
+    },
+    "taskId": {
+      "type": "string",
+      "description": "The task ID"
     }
   },
-  "required": ["patientId", "tenantId", "questionnaireId"]
+  "required": ["patientId", "tenantId", "questionnaireId", "taskId"]
 }
