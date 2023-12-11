@@ -1,0 +1,16 @@
+{
+    "tenantId": "h387afy7-B898-253F93F1F48C",
+    "patientId": "h387afy7-B898-253F93F1F48C",
+    "questionnaireId": "h387afy7-B898-253F93F1F48C",
+    "action": "START",
+    "timing": {
+        "repeat": {
+            "period": 1,
+            "periodUnit": "d",
+            "bounds": {
+                "start": "2020-01-01T00:00:00.000Z",
+                "end": "2020-01-27T00:00:00.000Z"
+            }
+        }
+    }
+}
