@@ -16,10 +16,10 @@
       "type": "string",
       "description": "The questionnaire ID"
     },
-    "taskId": {
+    "completionDate": {
       "type": "string",
-      "description": "The task ID"
+      "description": "The datetime that the task was completed"
     }
   },
-  "required": ["patientId", "tenantId", "questionnaireId", "taskId"]
+  "required": ["patientId", "tenantId", "questionnaireId", "completionDate"]
 }
