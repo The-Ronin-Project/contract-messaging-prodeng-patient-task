@@ -12,14 +12,19 @@
       "type": "string",
       "description": "The tenant ID"
     },
-    "questionnaireId": {
+    "referenceId": {
       "type": "string",
-      "description": "The questionnaire ID"
+      "description": "The reference ID to external components of the task"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of task",
+      "enum": ["QUESTIONNAIRE"]
     },
     "completionDate": {
       "type": "string",
       "description": "The datetime that the task was completed"
     }
   },
-  "required": ["patientId", "tenantId", "questionnaireId", "completionDate"]
+  "required": ["patientId", "tenantId", "referenceId", "completionDate", "type"]
 }

@@ -1,7 +1,9 @@
 {
     "tenantId": "h387afy7-B898-253F93F1F48C",
     "patientId": "h387afy7-B898-253F93F1F48C",
-    "questionnaireId": "h387afy7-B898-253F93F1F48C",
+    "referenceId": "h387afy7-B898-253F93F1F48C",
+    "type": "QUESTIONNAIRE",
+    "assignerId": "h387afy7-B898-253F93F1F48C",
     "action": "START",
     "timing": {
         "repeat": {
