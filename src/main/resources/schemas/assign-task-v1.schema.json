@@ -61,7 +61,8 @@
                   "type": "string",
                   "description": "The end time of the task"
                 }
-              }
+              },
+              "required": ["start"]
             }
           },
           "required": ["boundsPeriod"]
