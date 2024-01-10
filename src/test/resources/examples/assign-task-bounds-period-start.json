@@ -7,9 +7,7 @@
     "action": "START",
     "timing": {
         "repeat": {
-            "period": 1,
-            "periodUnit": "d",
-            "bounds": {
+            "boundsPeriod": {
                 "start": "2020-01-01T00:00:00.000Z",
                 "end": "2020-01-27T00:00:00.000Z"
             }
