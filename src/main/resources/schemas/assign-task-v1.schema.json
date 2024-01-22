@@ -49,6 +49,15 @@
           "type": "object",
           "description": "The repeat details of the task",
           "properties": {
+            "period": {
+              "type": "integer",
+              "description": "The period of the task in period units"
+            },
+            "periodUnit": {
+              "type": "string",
+              "enum": ["s","min","h", "d", "wk", "mo", "a"],
+              "description": "The time unit of the period"
+            },
             "boundsPeriod": {
               "type": "object",
               "description": "The bounds of the task",

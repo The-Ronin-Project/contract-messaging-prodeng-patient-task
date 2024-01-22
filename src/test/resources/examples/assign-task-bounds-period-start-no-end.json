@@ -1,9 +1,9 @@
 {
-    "tenantId": "h387afy7-B898-253F93F1F48C",
-    "patientId": "h387afy7-B898-253F93F1F48C",
+    "tenantId": "ronin",
+    "patientId": "ronin-patientFHIRID1",
     "referenceId": "h387afy7-B898-253F93F1F48C",
     "type": "QUESTIONNAIRE",
-    "assignerId": "h387afy7-B898-253F93F1F48C",
+    "assignerId": "ronin-patientFHIRID1",
     "action": "START",
     "timing": {
         "repeat": {
