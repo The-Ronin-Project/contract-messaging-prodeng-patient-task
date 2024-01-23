@@ -58,6 +58,10 @@
               "enum": ["s","min","h", "d", "wk", "mo", "a"],
               "description": "The time unit of the period"
             },
+            "frequency": {
+              "type": "integer",
+              "description": "Number of times task should happen within a period"
+            },
             "boundsPeriod": {
               "type": "object",
               "description": "The bounds of the task",
@@ -74,7 +78,7 @@
               "required": ["start"]
             }
           },
-          "required": ["boundsPeriod"]
+          "required": ["period", "periodUnit", "frequency","boundsPeriod"]
         }
       },
       "required": [
